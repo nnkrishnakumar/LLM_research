@@ -1,6 +1,4 @@
 LLM research paper:
 ------------------
 
-hello world
-
-Kumar
+this is krishna
