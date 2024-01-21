@@ -381,7 +381,7 @@ Creating word embeddings can be done in both supervised and unsupervised ways. H
 Note that while BERT is typically seen as a supervised method, it can also be used in an unsupervised manner for tasks like clustering or dimensionality reduction.
 
 
-Word2Vec:
+* End to end implementation of word2Vec in <Activation_function.ipynb> file with explaination  
 
 
 
