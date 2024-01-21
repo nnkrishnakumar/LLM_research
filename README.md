@@ -287,7 +287,7 @@ LSTM:
 
 GRU: 
 ----
-    > 2 Gates: reste , update
+    > 2 Gates: reset , update
     > More efficient computationwise getting more popular
     > Invented in 2014
 
