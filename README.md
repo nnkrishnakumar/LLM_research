@@ -3,16 +3,21 @@ LLM_research paper
 
 LLAMA Architecture:
 -------------------
+
 > LLaMA (Large Language Model Meta AI) is a family of autoregressive large language models (LLMs) released by Meta AI. The architecture of LLaMA is based on the transformer architecture, 
 which has been the standard for language modeling since 2018. However, there are several modifications made to enhance the model's performance 1, 2:
 
-> Activation Function: LLaMA uses the SwiGLU activation function instead of the commonly used ReLU (Rectified Linear Unit) 2.
-> Positional Embeddings: LLaMA replaces absolute positional embeddings with rotary positional embeddings (RoPE). These are added at each layer of the network 2.
-> Normalization: Instead of using standard layer-normalization, LLaMA employs root-mean-squared layer-normalization to improve training stability 2.
-> Context Length: The context length is increased from 2K (Llama 1) tokens to 4K (Llama 2) tokens 1.
-> The LLaMA models were trained on a large dataset, with the first version (LLaMA-1) trained on a dataset with 1.4 trillion tokens. This data included webpages scraped by CommonCrawl, open-source repositories of source code from GitHub, Wikipedia in 20 different languages, public domain books from Project Gutenberg, LaTeX source code for scientific papers uploaded to ArXiv, and questions and answers from Stack Exchange websites 1.
+> Activation Function: LLaMA uses the SwiGLU activation function instead of the commonly used ReLU (Rectified Linear Unit).
 
-The second version, LLaMA-2, was trained on a larger dataset with 2 trillion tokens. This dataset was curated to remove websites that often disclose personal data of people and upsample sources considered trustworthy 1.
+> Positional Embeddings: LLaMA replaces absolute positional embeddings with rotary positional embeddings (RoPE). These are added at each layer of the network.
+
+> Normalization: Instead of using standard layer-normalization, LLaMA employs root-mean-squared layer-normalization to improve training stability.
+
+> Context Length: The context length is increased from 2K (Llama 1) tokens to 4K (Llama 2) tokens.
+
+> The LLaMA models were trained on a large dataset, with the first version (LLaMA-1) trained on a dataset with 1.4 trillion tokens. This data included webpages scraped by CommonCrawl, open-source repositories of source code from GitHub, Wikipedia in 20 different languages, public domain books from Project Gutenberg, LaTeX source code for scientific papers uploaded to ArXiv, and questions and answers from Stack Exchange websites.
+
+> The second version, LLaMA-2, was trained on a larger dataset with 2 trillion tokens. This dataset was curated to remove websites that often disclose personal data of people and upsample sources considered trustworthy.
 
 
 
@@ -117,6 +122,7 @@ The training data consists of sets of input sentences and their respective outpu
 
 What is **vocab_size?
 ---------------------
+
 In the context of Natural Language Processing (NLP), the vocabulary size refers to the total number of unique words or tokens present in the dataset 2.
 
 For instance, if you have a corpus of English texts, the vocabulary size would be the count of unique words across all the texts. Each unique word is assigned a unique index, which is used in the embedding layer of the model to convert the words into numerical vectors that the model can understand 1.
@@ -127,7 +133,7 @@ Here's how you might calculate vocabulary size:
 
 from collections import Counter
 
-# Assuming `sentences` is a list of sentences, where each sentence is a list of words
+Assuming `sentences` is a list of sentences, where each sentence is a list of words
 all_words = [word for sentence in sentences for word in sentence]
 vocabulary = list(set(all_words))
 vocab_size = len(vocabulary)
@@ -144,10 +150,15 @@ list of all optimizers:
 Here is a comprehensive list of optimization algorithms used in neural networks:
 
 1> Stochastic Gradient Descent (SGD): 
+
     > This is the most basic form of gradient descent where we update our weight matrix in the direction of steepest descent as defined by the negative of the gradient. 
+
     > SGD has three variants: 
+
         > Batch SGD, 
+
         > Mini-Batch SGD, 
+
         > Stochastic SGD.
                                             from keras.optimizers import SGD
 
@@ -155,6 +166,7 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
                                             model.compile(loss='mean_squared_error', optimizer=opt)
         
 2> RMSprop: 
+
     > RMSprop (Root Mean Square Propagation) optimizer is an optimizer that utilizes the magnitude of the recent gradient descents to normalize the gradients. It does so by keeping a moving average of squared gradients.
 
                                             from keras.optimizers import RMSprop
@@ -163,6 +175,7 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 3> Adagrad: 
+
     > Adagrad is another optimizer that adapts the learning rate for each weight individually. It's good for dealing with sparse data.
                                             from keras.optimizers import Adagrad
 
@@ -170,6 +183,7 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 4> Adadelta: 
+
     > Adadelta is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Instead of accumulating all past squared gradients, Adadelta restricts the window of accumulated past gradients.
                                             from keras.optimizers import Adadelta
 
@@ -177,9 +191,13 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 5> Adam: 
+
     > Adam (Adaptive Moment Estimation) is an algorithm that computes adaptive learning rates for each parameter. 
+
     > It combines the advantages of two other extensions of stochastic gradient descent: 
+
         > AdaGrad and 
+
         > RMSProp.
                                             from keras.optimizers import Adam
 
@@ -187,28 +205,35 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 6> Adamax: 
+
     > Adamax is similar to Adam but uses the infinity norm instead of the second moment, making it more suitable for problems with large amounts of noise.
                                             from keras.optimizers import Adamax
                                             opt = Adamax(learning_rate=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0)
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 7> Nadam: 
+
     > Nadam is a combination of Nesterov Adam optimizer and the Adam optimizer. It is a variant of Adam optimizer with Nesterov momentum.
                                             from keras.optimizers import Nadam
                                             opt = Nadam(learning_rate=0.002, beta_1=0.9, beta_2=0.999, epsilon=None, schedule_decay=0.004)
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 8> Mini-Batch Gradient Descent: 
+
     > This is an improvement over both Stochastic Gradient Descent (SGD) and standard Gradient Descent. 
+
     > It updates the model parameters after every batch. The dataset is divided into various batches and after every batch, the parameters are updated.
 
 9> AdaDelta: 
+
     > AdaDelta is an extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. Instead of accumulating all past squared gradients, AdaDelta restricts the window of accumulated past gradients. It takes an exponentially decaying average of squared gradients and updates the parameters accordingly.
 
 10> AdaMax: 
+
     > AdaMax is a variant of Adam based on the infinity norm. It replaces the root mean square operation in Adam with the infinity norm to achieve the same benefits of Adam but with a simpler implementation.
 
 11> Gradient Descent with Momentum: 
+
     > This is a variant of the standard gradient descent algorithm that adds a fraction of the direction of the previous step to the current step. This helps to accelerate the convergence in the relevant direction and dampens oscillations.
                                             from keras.optimizers import SGD
                                             opt = SGD(lr=0.01, momentum=0.9)
@@ -216,6 +241,7 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
 
 
 12> Nesterov Accelerated Gradient: 
+
     > This is another variant of the standard gradient descent algorithm that includes a "lookahead" term, allowing it to converge faster and avoid local minima 1.
                                             from keras.optimizers import SGD
                                             opt = SGD(lr=0.01, momentum=0.9, nesterov=True)
@@ -223,18 +249,21 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
 
 
 13> AdamW: 
+
     > AdamW is a variant of Adam that decouples the weight decay from the optimization steps. This helps to prevent the optimization from being dominated by the weight decay.
                                             from keras.optimizers import Adam
                                             opt = Adam(weight_decay=0.01)
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 14> Ftrl: 
+
     > Ftrl (Follow-the-regularized Leader) is an optimization algorithm developed by Google for large scale machine learning. It is especially effective for tasks involving large sparse datasets 1.
                                             from keras.optimizers import Ftrl
                                             opt = Ftrl()
                                             model.compile(loss='mean_squared_error', optimizer=opt)
 
 15> Amsgrad: 
+
     > Amsgrad is a variant of Adam that corrects the issue of slow convergence in Adam. It does so by keeping track of the maximum gradient value seen so far and uses that to update the learning rate 1.
                                             from keras.optimizers import Adam
                                             opt = Adam(amsgrad=True)
@@ -242,8 +271,11 @@ Here is a comprehensive list of optimization algorithms used in neural networks:
 
 DIFFERENT TYPES OF RNN:
 -----------------------
+
 1> Many to Many --> it means many input and many output as well
+
 2> Many to One-->  it means we pass many input to our RNN and get single output as result , example : sentiment analaysis 
+
 3> One to manay--> it means we pass one input and it generated multiple output, example : music geneation 
 
 
@@ -252,17 +284,23 @@ Vanishing Gradient and exploding gradient:
 
 Vanishing gradient: 
 -------------------
+
     > As number of hidden layers grow, gradient becomes very small and weights will hardly change. This will hamper the learning process.
+
     > Vanishing gradient problems is more prominent in very deep neural networks.
 
 
 Vanishing Grandient problem in RNN:
 -----------------------------------
+
 with traditional RNN:
 
 if we will pass a sentence it always errase from the memory beacuse of big collection of word, here in this case vanishing gradient problem is more promient. To solve this problem we introduce:
+
     1> LSTM
+
     2> GRU
+
     These two are advance RNN.
 
 
@@ -271,8 +309,11 @@ if we will pass a sentence it always errase from the memory beacuse of big colle
 
 LSTM:
 -----
+
     > 3 Gates: Input, Output, forget
+
     > More accurte on longer sequence, less efficient.
+
     > Invented in 1995-1997
 
     import keras
@@ -287,8 +328,11 @@ LSTM:
 
 GRU: 
 ----
+
     > 2 Gates: reset , update
+
     > More efficient computationwise getting more popular
+
     > Invented in 2014
 
     import keras
@@ -305,8 +349,10 @@ GRU:
 
 Bidirectional RNN:
 ------------------
+
 Name Entity Recognition:
 -----------------------
+
 A Bidirectional Recurrent Neural Network (BRNN) is a type of Recurrent Neural Network (RNN) that processes input data in both forward and backward directions. This dual processing allows the network to capture information from both the past and future contexts when making predictions, which can significantly improve the model's accuracy.
 
 In a BRNN, the input data is passed through two separate RNNs: one processes the data in the forward direction, while the other processes it in the reverse direction. The outputs of these two RNNs are then combined in some way to produce the final output. One common way to combine the outputs of the forward and reverse RNNs is to concatenate them. Other methods, such as element-wise addition or multiplication, can also be used.
@@ -314,39 +360,57 @@ In a BRNN, the input data is passed through two separate RNNs: one processes the
 The working of a BRNN involves several steps:
 
 > Inputting a sequence: 
+
     > A sequence of data points, each represented as a vector with the same dimensionality, are fed into a BRNN. The sequence might have different lengths.
 
 > Dual Processing: 
+
     > Both the forward and backward directions are used to process the data. On the basis of the input at that step and the hidden state at step t-1, the hidden state at time step t is determined in the forward direction. The input at step t and the hidden state at step t+1 are used to calculate the hidden state at step t in a reverse way.
 
 > Computing the hidden state: 
+
     > A non-linear activation function on the weighted sum of the input and previous hidden state is used to calculate the hidden state at each step. This creates a memory mechanism that enables the network to remember data from earlier steps in the process.
 
 > Determining the output: 
+
     > A non-linear activation function is used to determine the output at each step from the weighted sum of the hidden state and a number of output weights. This output has two options: it can be the final output or input for another layer in the network.
 
 > Training: 
+
     > The network is trained through a supervised learning approach where the goal is to minimize the discrepancy between the predicted output and the actual output. The network adjusts its weights in the input-to-hidden and hidden-to-output connections during training through backpropagation 
 
 
 Covnerting word to numbers| word embedding:
 -------------------------------------------
+
 > Issue with options available:
+
     >Option 1:                                                                                                              not valid to capture emotion
+
         > Assiging unique numbers is problematic task beacuse They don't capture relationship between words.
 
     > Option 2:                                                                                                             not valid to capture emotion
+
         > one hot encoding 
+
             > Dont capture relationship between words
+
             > computationally in-efficient.
 
     > Option 3:                                                                                                             valid to capture emotions
+
         > word embedding:                                                                                                --------------------------------
+
             Some of the popular techniques for generating word embeddings include : 
+
             1 > TF IDF 
+
             2 > Word2Vec
+
             3 > GloVe (Global Vectors) 
+
             4 > FastText
+
             5 > ELMo (Embeddings from Language Models)
             
 Word embedding: valid to capture emotions:
@@ -367,15 +431,23 @@ More on word embedding:
 Creating word embeddings can be done in both supervised and unsupervised ways. Here are some of the common methods:
 
 > Unsupervised Methods: 
+
     > These methods generate word embeddings without using any labeled data. The most common unsupervised method is Word2Vec, which uses a shallow, two-layer neural network to learn word associations from a large corpus of text. It captures the context of a word in a document, semantic and syntactic similarity, relation with other words, etc. 
+
     > There are two main architectures: 
+
         1> Continuous Bag of Words (CBOW) and 
+
         2> Skip-Gram.
+
     > Unsupervise technique for embedding:
+
         > word2Vec
+
         > glove
         
 > Supervised Methods: 
+
     > These methods generate word embeddings using labeled data. An example of a supervised method is BERT (Bidirectional Encoder Representations from Transformers), which uses an attention mechanism for generating high-quality word embeddings that are contextualized. When the embedding goes through the training process, they are passed through each BERT layer so that its attention mechanism can capture the word associations based on the words on the left and those on the right.
 
 Note that while BERT is typically seen as a supervised method, it can also be used in an unsupervised manner for tasks like clustering or dimensionality reduction.
