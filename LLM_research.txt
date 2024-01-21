@@ -1,6 +1,39 @@
+LLAMA Architecture:
+-------------------
+> LLaMA (Large Language Model Meta AI) is a family of autoregressive large language models (LLMs) released by Meta AI. The architecture of LLaMA is based on the transformer architecture, 
+which has been the standard for language modeling since 2018. However, there are several modifications made to enhance the model's performance 1, 2:
+
+> Activation Function: LLaMA uses the SwiGLU activation function instead of the commonly used ReLU (Rectified Linear Unit) 2.
+> Positional Embeddings: LLaMA replaces absolute positional embeddings with rotary positional embeddings (RoPE). These are added at each layer of the network 2.
+> Normalization: Instead of using standard layer-normalization, LLaMA employs root-mean-squared layer-normalization to improve training stability 2.
+> Context Length: The context length is increased from 2K (Llama 1) tokens to 4K (Llama 2) tokens 1.
+> The LLaMA models were trained on a large dataset, with the first version (LLaMA-1) trained on a dataset with 1.4 trillion tokens. This data included webpages scraped by CommonCrawl, open-source repositories of source code from GitHub, Wikipedia in 20 different languages, public domain books from Project Gutenberg, LaTeX source code for scientific papers uploaded to ArXiv, and questions and answers from Stack Exchange websites 1.
+
+The second version, LLaMA-2, was trained on a larger dataset with 2 trillion tokens. This dataset was curated to remove websites that often disclose personal data of people and upsample sources considered trustworthy 1.
+
+
+
+
+Activation function available in LLAMA:
+--------------------------------------
+SwiGLU(x) = x * sigmoid(beta * x) + (1 - sigmoid(beta * x)) * x
+
+Rectified Linear Units (ReLU)f(x)=max(0,x)
+
+
+***********************************************************************************************************************
+sigmoid mathmatical formula : σ(x) = 1 / (1 + e^-x)
+
+>>> sigmoid function is generally use as activation function in neural network.
+
+
+
+
+
 LLM research paper:
 ------------------
+LLM:(Large Language Model):
+--------------------------
 
-this is krishna
-
-this is krishnakumar
+Transformer: LLM built using Transformer.
+-----------
