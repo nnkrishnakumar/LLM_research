@@ -415,6 +415,11 @@ Covnerting word to numbers| word embedding:
             
 Word embedding: valid to capture emotions:
 ---------------------------------------------
+
+Word embedding allow us to do mathmatical operation on word:
+
+* EXAMPLE : King- man + women = Queen
+
 How can we capture similarity between two words?
 
     > Word embedding is a technique used in natural language processing (NLP) that represents words as numbers (specifically, real-valued vectors) so that a computer can work with them 5. This approach allows words with similar meanings to have a similar representation, which is beneficial for machine learning algorithms that analyze text data.
@@ -436,16 +441,75 @@ Creating word embeddings can be done in both supervised and unsupervised ways. H
 
     > There are two main architectures: 
 
-        1> Continuous Bag of Words (CBOW) and 
+        1> Continuous Bag of Words (CBOW)
 
+            Explaination: 
+            -------------
+                > suppose I have a story: 
+
+                    story is like : "Once upon a time, there was a King  ..."
+
+                    context:  _ _ _ _, upon, a , time
+
+                    target to predict:  Once        # "Once" will be predicted keyword by model
+                                        ----
         2> Skip-Gram.
 
-    > Unsupervise technique for embedding:
+            > On the other hand Skip-Gram predict "context" on the basis of target
 
-        > word2Vec
+            Example: same story as metioned above 
+                    
+                    > taget: Once, _ _ _ _, _ _ _ _, _ _ _ _
 
-        > glove
-        
+                    > context to predict : upon, a , time
+                                           ---- ---  ----
+
+            > Unsupervise technique for embedding:
+             ------------------------------------
+                > word2Vec(gensim library)
+
+                > glove
+    
+    * Note Book of word to vec:
+     --------------------------
+    
+    > Available Library to convert word to vec using unsupervise technique:
+
+        There are several libraries available to convert words to vectors using unsupervised techniques. Some of the popular ones include:
+
+        1> Gensim: Gensim is a Python library for topic modelling, document indexing and similarity retrieval with large corpora. It has a built-in implementation of Word2Vec, which is an unsupervised technique for learning word embeddings.
+
+                                            Example usage:
+
+                                            from gensim.models import Word2Vec
+                                            model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
+
+        2> Doc2Vec: Doc2Vec is an extension of Word2Vec that allows us to create vectors for entire documents instead of individual words. It takes into account the order of the words, making it suitable for short texts.
+
+                                            Example usage:
+
+                                            from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+
+        3> SpaCy: SpaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python. It includes support for word vectors and is built on the very latest research.
+
+                                            Example usage:
+
+                                            import spacy
+                                            nlp = spacy.load('en_core_web_md') # Load English tokenizer, tagger, parser, NER and word vectors
+
+        4> TensorFlow: TensorFlow is an open-source software library for machine learning and artificial intelligence. It provides a flexible platform for defining and running machine learning algorithms, including Word2Vec.
+
+                                            Example usage:
+
+                                            from tensorflow.keras.layers.experimental.preprocessing import TextVectorization
+
+        5> PyTorch: PyTorch is an open-source machine learning library based on the Torch library, used for applications such as natural language processing. It is primarily developed by Facebook's AI Research lab.
+
+                                            Example usage:
+
+                                            import torchtext.vocab as vocab
+
+
 > Supervised Methods: 
 
     > These methods generate word embeddings using labeled data. An example of a supervised method is BERT (Bidirectional Encoder Representations from Transformers), which uses an attention mechanism for generating high-quality word embeddings that are contextualized. When the embedding goes through the training process, they are passed through each BERT layer so that its attention mechanism can capture the word associations based on the words on the left and those on the right.
