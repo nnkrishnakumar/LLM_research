@@ -520,6 +520,71 @@ Note that while BERT is typically seen as a supervised method, it can also be us
 * NOTE : End to end implementation of word2Vec in <Activation_function.ipynb> file with explaination  
 
 
+# Tensorflow input pipeline:
+----------------------------
+Question: why do we use data pipeline in machine learning ?
+
+Solution: Data pipelines play a crucial role in machine learning (ML) for several reasons:
+
+    1> Data Collection and Ingestion:
+
+        > Source Integration: 
+        
+            > Data pipelines help integrate and collect data from various sources, such as databases, APIs, streaming platforms, and more. They facilitate the ingestion of data into a centralized location for further processing.
+    
+    2> Data Cleaning and Preprocessing:
+
+        > Data Quality: 
+            
+            > Raw data is often noisy, incomplete, or contains errors. Data pipelines enable the cleaning and preprocessing of data, including handling missing values, outlier detection, and normalization, to ensure the quality and consistency of the data used for training models.
+    
+    3> Feature Engineering:
+
+        > Transformation: 
+            
+            > Feature engineering involves creating new features or transforming existing ones to improve model performance. Data pipelines can automate these processes, allowing for the creation of meaningful features that capture relevant information from the raw data.
+    
+    4> Data Transformation and Scaling:
+
+        > Normalization: 
+
+            > ML models often require input data to be on a similar scale. Data pipelines can normalize or scale features appropriately to ensure that models are not biased toward certain features due to differences in their magnitudes.
+    
+    5> Data Splitting:
+
+        > Training and Testing Sets: 
+        
+            > Data pipelines assist in splitting the dataset into training and testing sets. This is essential for evaluating the model's performance on unseen data and preventing overfitting.
+    
+    6> Model Training:
+
+        > Efficient Training: 
+        
+            > Data pipelines ensure that the training data is efficiently fed into the ML model. They can handle large datasets, mini-batch processing, and parallelization, making the training process more scalable and manageable.
+
+    7> Model Evaluation:
+
+        > Testing and Validation: 
+            
+            > Data pipelines help automate the process of evaluating models on validation and test datasets, providing insights into their performance metrics.
+
+    8> Model Deployment:
+
+        > Scalability: 
+            
+            > Data pipelines facilitate the deployment of trained models by providing a streamlined process for transforming incoming data in real-time or batch processing. This ensures that the deployed model can handle new data effectively.
+
+    9> Monitoring and Maintenance:
+
+        > Continuous Improvement: 
+        
+            > Data pipelines can be configured to monitor model performance over time. This allows for continuous improvement, retraining models with new data, and adapting to changing patterns in the data.
+    
+    10> Workflow Automation:
+
+        > Efficiency: 
+            
+            > Data pipelines automate the end-to-end workflow, reducing manual intervention and minimizing the likelihood of errors. This enhances the efficiency of the ML development process.
 
 
 
